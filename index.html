@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -15,10 +15,59 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
         <style>
+
+            .title {
+                text-align: center;
+                font-size: 66px;
+                color: #FFF;
+                margin-bottom: 45px;
+                font-family: fantasy;
+            }
+
+            .div-progress {
+
+            }
+
+            .div-progress-info {
+                color: #FFF;
+                margin-bottom: 10px;
+                padding-top: 5px;
+                font-size: 30px;
+            }
+
+            .arrecadado {
+                width: 50%;
+                text-align: left;
+                float: left;
+            }
+
+            .meta {
+                text-align: right;
+            }
+
+            .bg-degrade {
+                background: linear-gradient(to left, rgb(157, 216, 60), rgb(36, 202, 104) 50%) !important;
+            }
+
             .progress-custom {
-                height: 4rem;
+                height: 3.5rem;
                 font-size: 2.75rem;
-                margin-bottom: 50px;
+                border-radius: 50px;
+                width: 92%;
+            }
+
+            .label-percent {
+                width: 8%;
+                float: left;
+                font-family: fantasy;
+                font-size: 40px;
+                color: #FFF;
+                padding-right: 10px;
+                
+            }
+
+            .label-arrecadado {
+                font-size: 65px;
             }
 
         </style>
@@ -38,17 +87,44 @@
 -->
         <!-- Masthead-->
         <header class="masthead">
+
             <div class="container position-relative">
-
-                <div class="progress progress-custom">
-                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%">R$ 3500,00</div>
+<!--
+                <div class="label-arrecadado">
+                    Arrecadado R$ 3500,00
                 </div>
+-->                
+                <div class="title">
+                    REFORMA GILEADE LAGOA REDONDA
+                </div>
+                <div class="div-progress-info">
+                    <div class="div-progress-info arrecadado">
+                        Arrecadado R$ 3500,00
+                    </div>
+                    <div class="div-progress-info meta">
+                        Meta R$ 5000,00
+                    </div>
+                </div>            
 
+                <div class="div-progress">
+                    <div class="label-percent">75%</div>
+                    <div class="progress progress-custom">
+                        <!--                    
+                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%">R$ 3500,00</div>
+                        -->                    
+                        <div class="progress-bar bg-degrade" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+                    </div>
+                </div>
+<!--                
+                <div class="label-arrecadado">
+                    Meta R$ 5000,00
+                </div>
+-->
                 <div class="row justify-content-center">
                     <div class="col-xl-6">
                         <div class="text-center text-white">
                             <!-- Page heading-->
-                            <h1 class="mb-5">Ajude-nos à concluir nossa reforma!</h1>
+                            <h1 class="mb-5">Ajude-nos nesta obra!</h1>
                             <!-- Signup form-->
 <!--                            
                             <form>
@@ -94,6 +170,7 @@
         </section>
 -->        
         <!-- Image Showcases-->
+<!--        
         <section class="showcase">
             <div class="container-fluid p-0">
                 <div class="row g-0">
@@ -119,6 +196,7 @@
                 </div>
             </div>
         </section>
+-->        
         <!-- Testimonials-->
 <!--        
         <section class="testimonials text-center bg-light">
