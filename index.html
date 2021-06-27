@@ -6,6 +6,7 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Reforma Gileade Lagoa Redonda</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Bootstrap icons-->
@@ -80,6 +81,28 @@
             }
 
         </style>
+        <script>
+            $( document ).ready(function() {
+
+                function loadProgressBar() {
+                    $.get(
+//                        "https://reforma-api.vercel.app/contribuicao", 
+                        "http://localhost:3000/", 
+                        function(data) {
+                            console.log(data);
+                            $("#meta").html("Meta R$ " + data.meta);
+                            $("#arrecadado").html("Arrecadado R$ " + data.arrecadado);
+                            $("#progress-bar").attr("aria-valuenow", data.percentualArrecadado);
+                            $("#progress-bar").width(data.percentualArrecadado + "%");
+                            $("#label-percent").html(data.percentualArrecadado + "%");
+                        }
+                    );
+                }
+
+                loadProgressBar();
+
+            });
+        </script>
     </head>
     <body>
         <!-- Navigation-->
@@ -108,21 +131,17 @@
                 </div>
                 <div class="col-12 div-progress-info">
 <!--                    <div class="col-sm-12 col-md-6 col-12 col-lg-6 col-xl-6 meta"> -->
-                <div class="col-6 meta">
-                        Meta R$ 5000,00
-                    </div>
-                    <div class="col-6 arrecadado">
-                        Arrecadado R$ 3500,00
-                    </div>
+                    <div id="meta" class="col-6 meta"></div>
+                    <div id="arrecadado" class="col-6 arrecadado"></div>
                 </div>            
 
                 <div class="div-progress">
-                    <div class="col-sm-2 col-md-2 col-3 col-lg-1 col-xl-1 label-percent">75%</div>
+                    <div id="label-percent" class="col-sm-2 col-md-2 col-3 col-lg-1 col-xl-1 label-percent"></div>
                     <div class="col-sm-10 col-md-10 col-9 col-lg-11 col-xl-11 progress progress-custom">
                         <!--                    
                             <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%">R$ 3500,00</div>
                         -->                    
-                        <div class="progress-bar bg-degrade" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+                        <div id="progress-bar" class="progress-bar bg-degrade" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
                     </div>
                 </div>
 <!--                

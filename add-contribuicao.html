@@ -30,10 +30,6 @@
 
         </style>
         <script>
-            
-            $( document ).ready(function() {
-
-            });
 
             function submeter() {
                 var responsavel = $('#inputResponsavel').val();
@@ -50,13 +46,20 @@
                 //console.log(chaveSeguranca);
                 
                 $.post( 
-                    "https://reforma-api.vercel.app/contribuicao", 
+//                    "https://reforma-api.vercel.app/contribuicao", 
+                    "http://localhost:3000/contribuicao", 
                     {
                         "responsavel" : responsavel,
-                        "dataRealizacao" : dataRealizacao
+                        "dataRealizacao" : dataRealizacao,
+                        "atividade" : atividade,
+                        "valorArrecadado" : valorArrecadado,
+                        "observacao" : observacao,
+                        "chaveSeguranca" : chaveSeguranca
                     },
-                    function( data ) {
-                    console.log(data);
+                    function(data, status, resp ) {
+                        console.log(data);
+                        console.log(status);
+                        console.log(resp);
                 });
 
                 limparCampos();
