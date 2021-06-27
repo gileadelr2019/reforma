@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Reforma Gileade Lagoa Redonda</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" type="text/css" />
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+        <style>
+            .form {
+                margin: 30px 20%;
+            }
+
+            .form-group{
+                margin-bottom: 10px;
+            }
+
+            .message {
+                margin-top: 10px;
+            }
+
+        </style>
+        <script>
+            
+            $( document ).ready(function() {
+
+            });
+
+            function submeter() {
+                var responsavel = $('#inputResponsavel').val();
+                var dataRealizacao = $('#inputDataRealizacao').val();
+                var atividade = $('#selectAtividade').val();
+                var valorArrecadado = $('#inputValorArrecadado').val();
+                var observacao = $('#textareaObservacao').val();
+                var chaveSeguranca = $('#inputChaveSeguranca').val();
+                //console.log(responsavel);
+                //console.log(dataRealizacao);
+                //console.log(atividade);
+                //console.log(valorArrecadado);
+                //console.log(observacao);
+                //console.log(chaveSeguranca);
+                
+                $.post( 
+                    "https://reforma-api.vercel.app/contribuicao", 
+                    {
+                        "responsavel" : responsavel,
+                        "dataRealizacao" : dataRealizacao
+                    },
+                    function( data ) {
+                    console.log(data);
+                });
+
+                limparCampos();
+            }
+
+            function limparCampos() {
+                $('#inputResponsavel').val("");
+                $('#inputDataRealizacao').val("");
+                $('#selectAtividade').val("0").change();
+                $('#inputValorArrecadado').val("");
+                $('#textareaObservacao').val("");
+                $('#inputChaveSeguranca').val("");
+            }
+
+        </script>
+    </head>
+    <body>
+        <!-- Navigation-->
+        <nav class="navbar navbar-light bg-light static-top">
+            <div class="container">
+                <label class="navbar-brand">Informar Contribuição</label>
+                <a class="btn btn-primary" href="https://gileadelr2019.github.io/reforma/index.html">Início</a>
+            </div>
+        </nav>
+        <div class="form">
+            <form id="my-form" name="my-form">
+                <div class="form-group">
+                    <label for="inputResponsavel">Responsável</label>
+                    <input type="text" class="form-control" id="inputResponsavel" aria-describedby="emailHelp" placeholder="Informe seu nome">
+                    <!--
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    -->
+                </div>
+                <div class="form-group">
+                    <label for="inputDataRealizacao">Data da Realização</label>
+                    <input type="date" class="form-control" id="inputDataRealizacao" placeholder="dia/mes/ano">
+                </div>
+                <div class="form-group">
+                    <label for="selectAtividade">Atividade</label>
+                    <select class="form-control" id="selectAtividade">
+                        <option value="0">Selecione...</option>
+                        <option value="1">Oferta/Doação</option>
+                        <option value="2">Bazar</option>
+                        <option value="3">Cantina</option>
+                        <option value="4">Feijoada</option>
+                        <option value="5">Outros</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="inputValorArrecadado">Valor Arrecadado</label>
+                    <input type="number" min="1" step="any" class="form-control uppercase" id="inputValorArrecadado" placeholder="Informe o valor">
+                </div>
+                <div class="form-group">
+                    <label for="textareaObservacao">Observação</label>
+                    <textarea class="form-control" id="textareaObservacao" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="inputChaveSeguranca">Chave de Segurança</label>
+                    <input type="password" class="form-control" id="inputChaveSeguranca" placeholder="Chave de Segurança">
+                </div>
+                <button type="buttonConfirmar" class="btn btn-primary" onclick="submeter(); return false;">Confirmar</button>
+                <div class="message" id="message">
+                </div>
+              </form>
+        </div>
+
+<!-- email: gileadelr2019@gmail.com
+    senha: Gi050621_
+-->
+        <!-- Icons Grid-->
+        <!-- Footer-->
+        <footer class="footer bg-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
+                        <ul class="list-inline mb-2">
+                            <li class="list-inline-item"><a href="#!">About</a></li>
+                            <li class="list-inline-item">⋅</li>
+                            <li class="list-inline-item"><a href="#!">Contact</a></li>
+                            <li class="list-inline-item">⋅</li>
+                            <li class="list-inline-item"><a href="#!">Terms of Use</a></li>
+                            <li class="list-inline-item">⋅</li>
+                            <li class="list-inline-item"><a href="#!">Privacy Policy</a></li>
+                        </ul>
+                        <p class="text-muted small mb-4 mb-lg-0">&copy; Your Website 2021. All Rights Reserved.</p>
+                    </div>
+                    <div class="col-lg-6 h-100 text-center text-lg-end my-auto">
+                        <ul class="list-inline mb-0">
+                            <li class="list-inline-item">
+                                <a href="https://www.instagram.com/gileadelr/"><i class="bi-instagram fs-3"></i></a>
+                            </li>
+                            <li class="list-inline-item me-4">
+                                <a href="https://www.youtube.com/channel/UCnQCB2VA90Le6gM5LELAyYg"><i class="bi-youtube fs-3"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
